@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Home } from '../features/home';
+import { Dashboard } from '../features/dashboard';
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/transactions" component={Home} exact />
-      <Route path="/cards" component={Home} exact />
-      <Route path="/transfers" component={Home} exact />
-      <Route path="/accounts" component={Home} exact />
+      <Route path="/" component={Dashboard} exact />
+      <Route path="/transactions" component={Dashboard} exact />
+      <Route path="/cards" component={Dashboard} exact />
+      <Route path="/transfers" component={Dashboard} exact />
+      <Route path="/accounts" component={Dashboard} exact />
 
       <Route
         render={() => (

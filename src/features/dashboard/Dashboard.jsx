@@ -1,18 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { TerminalIcon } from '@heroicons/react/outline';
+
 import { Layout } from '../../layout';
-import { selectCompany } from '../sample/sampleSlice';
 import { RecentActivity } from '../activity';
 import { Accounts } from '../accounts';
 import { ActionButtons } from '../actions';
 import { ExpenseOverview } from '../expenses';
 import RevenueOverview from '../revenues/RevenueOverview';
 
-const Home = () => {
-  const dispatch = useDispatch();
-  const company = useSelector(selectCompany);
-
+const Dashboard = () => {
   return (
     <Layout>
       <div className="grid grid-cols-1 lg:gap-6 lg:grid-cols-4">
@@ -47,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;
