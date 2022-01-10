@@ -31,7 +31,7 @@ const userNavigation = [
 export default function Layout({ children }) {
   return (
     <>
-      <div className="h-screen bg-gray-50 flex flex-col">
+      <div className="h-screen flex flex-col">
         <Disclosure as="nav" className="bg-black">
           {({ open }) => (
             <>
@@ -184,7 +184,7 @@ export default function Layout({ children }) {
           )}
         </Disclosure>
 
-        <main className="flex-grow">
+        <main className="flex-grow bg-gray-50 ">
           <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             {children}
           </div>
