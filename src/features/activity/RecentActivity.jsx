@@ -1,4 +1,5 @@
 import { DownloadIcon } from '@heroicons/react/outline';
+import { Link } from 'react-router-dom';
 import { Card } from '../../components';
 import ActivityTable from './components/ActivityTable';
 
@@ -13,9 +14,12 @@ export default function RecentActivity() {
             </h3>
           </div>
           <div className="ml-4 mt-2 flex items-center space-x-4">
-            <button className="text-sm px-2 py-2 border border-transparent rounded-md hover:bg-black hover:text-white">
-              See all transactions
-            </button>
+            <Link
+              to="/transactions"
+              className="text-sm px-2 py-2 border border-transparent rounded-md hover:bg-black hover:text-white"
+            >
+              See All Transactions
+            </Link>
             <button
               type="button"
               className="relative inline-flex items-center px-2 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md bg-gray-200 hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"

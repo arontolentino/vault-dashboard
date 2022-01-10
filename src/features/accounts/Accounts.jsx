@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '../../components';
 import AccountCard from './components/AccountCard';
 
@@ -29,9 +30,12 @@ export default function Accounts() {
             <h3 className="text-base leading-6 text-gray-400">Accounts</h3>
           </div>
           <div className="ml-4 mt-2 flex items-center space-x-4">
-            <button className="text-sm px-2 py-2 border border-transparent rounded-md hover:bg-black hover:text-white">
+            <Link
+              to="/accounts"
+              className="text-sm px-2 py-2 border border-transparent rounded-md hover:bg-black hover:text-white"
+            >
               See Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>
