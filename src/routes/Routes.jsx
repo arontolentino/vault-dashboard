@@ -1,15 +1,24 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Page from '../components/Page';
 import { Dashboard } from '../features/dashboard';
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/" component={Dashboard} exact />
-      <Route path="/transactions" component={Dashboard} exact />
-      <Route path="/cards" component={Dashboard} exact />
-      <Route path="/transfers" component={Dashboard} exact />
-      <Route path="/accounts" component={Dashboard} exact />
+      <Route
+        path="/transactions"
+        render={() => <Page title="Transactions" />}
+        exact
+      />
+      <Route path="/cards" render={() => <Page title="Cards" />} exact />
+      <Route
+        path="/transfers"
+        render={() => <Page title="Transfers" />}
+        exact
+      />
+      <Route path="/accounts" render={() => <Page title="Accounts" />} exact />
 
       <Route
         render={() => (

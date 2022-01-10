@@ -1,9 +1,10 @@
 import { DownloadIcon } from '@heroicons/react/outline';
+import { Card } from '../../components';
 import ActivityTable from './components/ActivityTable';
 
 export default function RecentActivity() {
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg">
+    <Card>
       <div className="px-4 py-4 sm:px-6">
         <div className="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
           <div className="ml-4 mt-2">
@@ -27,6 +28,6 @@ export default function RecentActivity() {
       <div className="px-4 py-4">
         <ActivityTable />
       </div>
-    </div>
+    </Card>
   );
 }

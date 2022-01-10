@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Card } from '../../components';
 import AccountCard from './components/AccountCard';
 
 export default function Accounts() {
@@ -21,7 +22,7 @@ export default function Accounts() {
   ]);
 
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg">
+    <Card>
       <div className="px-4 py-4 sm:px-6">
         <div className="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
           <div className="ml-4 mt-2">
@@ -36,9 +37,9 @@ export default function Accounts() {
       </div>
       <ul className="px-4 pb-4 space-y-4">
         {accounts.map((account) => (
-          <AccountCard account={account} />
+          <AccountCard key={account.accountId} account={account} />
         ))}
       </ul>
-    </div>
+    </Card>
   );
 }

@@ -8,7 +8,6 @@ export default function ActionButtons() {
   return (
     <div className="space-y-3">
       <button
-        rounded-lg
         type="button"
         className="w-full flex justify-between items-center px-4 py-3 shadow text-sm font-medium rounded-lg bg-white hover:bg-black hover:text-white focus:outline-none"
       >
@@ -17,7 +16,6 @@ export default function ActionButtons() {
       </button>
 
       <button
-        rounded-lg
         type="button"
         className="w-full flex justify-between items-center px-4 py-3 shadow text-sm font-medium rounded-lg bg-white hover:bg-black hover:text-white focus:outline-none"
       >
@@ -26,7 +24,6 @@ export default function ActionButtons() {
       </button>
 
       <button
-        rounded-lg
         type="button"
         className="w-full flex justify-between items-center px-4 py-3 shadow text-sm font-medium rounded-lg bg-white hover:bg-black hover:text-white focus:outline-none"
       >

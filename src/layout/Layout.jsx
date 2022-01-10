@@ -1,5 +1,5 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
@@ -7,6 +7,7 @@ import {
   XIcon,
   DotsVerticalIcon,
 } from '@heroicons/react/outline';
+import { classNames } from '../utils';
 
 const user = {
   name: 'Ahmed Shafik',
@@ -15,11 +16,11 @@ const user = {
     'https://media-exp1.licdn.com/dms/image/C5603AQHExrhjk2cwLg/profile-displayphoto-shrink_100_100/0/1566165942546?e=1647475200&v=beta&t=prSmSUUUWuW_Jl0cz0OJZ8UEoDrygbdLuMktqrLruZY',
 };
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Transactions', href: '#', current: false },
-  { name: 'Cards', href: '#', current: false },
-  { name: 'Transfers', href: '#', current: false },
-  { name: 'Accounts', href: '#', current: false },
+  { name: 'Dashboard', href: '/', current: true },
+  { name: 'Transactions', href: '/transactions', current: false },
+  { name: 'Cards', href: '/cards', current: false },
+  { name: 'Transfers', href: '/transfers', current: false },
+  { name: 'Accounts', href: '/accounts', current: false },
 ];
 const userNavigation = [
   { name: 'Account', href: '#' },
@@ -27,14 +28,10 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export default function Layout({ children }) {
   return (
     <>
-      <div className="min-h-full bg-gray-50">
+      <div className="h-screen bg-gray-50 flex flex-col">
         <Disclosure as="nav" className="bg-black">
           {({ open }) => (
             <>
@@ -44,19 +41,15 @@ export default function Layout({ children }) {
                     <div className="hidden md:block">
                       <div className="flex items-baseline space-x-8">
                         {navigation.map((item) => (
-                          <a
+                          <NavLink
                             key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current
-                                ? 'bg-gray-400 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'px-3 py-2 rounded-md text-sm font-medium'
-                            )}
-                            aria-current={item.current ? 'page' : undefined}
+                            to={item.href}
+                            className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                            activeClassName="bg-gray-400"
+                            exact
                           >
                             {item.name}
-                          </a>
+                          </NavLink>
                         ))}
                       </div>
                     </div>
@@ -96,15 +89,14 @@ export default function Layout({ children }) {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700'
-                                    )}
+                                  <NavLink
+                                    to={item.href}
+                                    className="block px-4 py-2 text-sm text-gray-700"
+                                    activeClassName="bg-gray-100"
+                                    exact
                                   >
                                     {item.name}
-                                  </a>
+                                  </NavLink>
                                 )}
                               </Menu.Item>
                             ))}
@@ -151,6 +143,13 @@ export default function Layout({ children }) {
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-700">
                   <div className="flex items-center px-5">
+                    <div className="flex-shrink-0">
+                      <img
+                        className="h-10 w-10 rounded-full"
+                        src={user.imageUrl}
+                        alt=""
+                      />
+                    </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">
                         {user.name}
@@ -185,7 +184,7 @@ export default function Layout({ children }) {
           )}
         </Disclosure>
 
-        <main>
+        <main className="flex-grow">
           <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             {children}
           </div>
